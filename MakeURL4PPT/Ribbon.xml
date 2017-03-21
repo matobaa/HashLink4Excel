@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI onLoad="Ribbon_Load" xmlns="http://schemas.microsoft.com/office/2009/07/customui">
+  <contextMenus>
+    <contextMenu idMso="ContextMenuShape">
+      <button id="MakeURLShape" getLabel="GetLabel" visible="true" onAction="MakeURL" imageMso="HyperlinkEdit" />
+    </contextMenu>
+    <contextMenu idMso="ContextMenuObjectsGroup">
+      <button id="MakeURLObjectsGroup" getLabel="GetLabel" visible="true" onAction="MakeURL" imageMso="HyperlinkEdit" />
+    </contextMenu>
+    <contextMenu idMso="ContextMenuTextEdit">
+      <button id="MakeURLTextEdit" getLabel="GetLabel" visible="true" onAction="MakeURL" imageMso="HyperlinkEdit" />
+    </contextMenu>
+    <contextMenu idMso="ContextMenuThumbnail">
+      <button id="MakeURLThumbnail" getLabel="GetLabel" visible="true" onAction="MakeURL" imageMso="HyperlinkEdit" />
+    </contextMenu>
+    <contextMenu idMso="ContextMenuSlideSorter">
+      <button id="MakeURLSlideSorter" getLabel="GetLabel" visible="true" onAction="MakeURL" imageMso="HyperlinkEdit" />
+    </contextMenu>
+  </contextMenus>
+</customUI>

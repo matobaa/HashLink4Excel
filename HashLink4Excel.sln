@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9A0AB603-1A44-45B3-8F9D-9FC43BE0727E}"
+	ProjectSection(SolutionItems) = preProject
+		enquete.js = enquete.js
+		LICENSE.txt = LICENSE.txt
+		README.html = README.html
+		README.md = README.md
+		thanks.js = thanks.js
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "setup", "Setup\Setup.vdproj", "{2FC2A899-7E82-4935-A0F0-DFC955EA266E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLHandler", "URLHandler\URLHandler.csproj", "{73539CDA-C21A-458B-AE34-8DB19D8C7E09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{C97517F2-861E-4B0A-A1EE-113CE3FA11D9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{73539CDA-C21A-458B-AE34-8DB19D8C7E09} = {73539CDA-C21A-458B-AE34-8DB19D8C7E09}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeURL4PPT", "MakeURL4PPT\MakeURL4PPT.csproj", "{437CBE12-4B19-4B84-AB39-0CF03D783B1A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{73539CDA-C21A-458B-AE34-8DB19D8C7E09} = {73539CDA-C21A-458B-AE34-8DB19D8C7E09}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeURL4XLS", "MakeURL4XLS\MakeURL4XLS.csproj", "{A601B3A7-D5E1-4027-AFCF-677510C679C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FC2A899-7E82-4935-A0F0-DFC955EA266E}.Debug|Any CPU.ActiveCfg = Debug
+		{2FC2A899-7E82-4935-A0F0-DFC955EA266E}.Debug|Any CPU.Build.0 = Debug
+		{2FC2A899-7E82-4935-A0F0-DFC955EA266E}.Release|Any CPU.ActiveCfg = Release
+		{2FC2A899-7E82-4935-A0F0-DFC955EA266E}.Release|Any CPU.Build.0 = Release
+		{73539CDA-C21A-458B-AE34-8DB19D8C7E09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73539CDA-C21A-458B-AE34-8DB19D8C7E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73539CDA-C21A-458B-AE34-8DB19D8C7E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73539CDA-C21A-458B-AE34-8DB19D8C7E09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C97517F2-861E-4B0A-A1EE-113CE3FA11D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C97517F2-861E-4B0A-A1EE-113CE3FA11D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C97517F2-861E-4B0A-A1EE-113CE3FA11D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C97517F2-861E-4B0A-A1EE-113CE3FA11D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{437CBE12-4B19-4B84-AB39-0CF03D783B1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{437CBE12-4B19-4B84-AB39-0CF03D783B1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{437CBE12-4B19-4B84-AB39-0CF03D783B1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{437CBE12-4B19-4B84-AB39-0CF03D783B1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A601B3A7-D5E1-4027-AFCF-677510C679C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A601B3A7-D5E1-4027-AFCF-677510C679C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A601B3A7-D5E1-4027-AFCF-677510C679C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A601B3A7-D5E1-4027-AFCF-677510C679C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

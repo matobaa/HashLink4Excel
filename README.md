@@ -1,20 +1,69 @@
-#Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
-#Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+# Introduction / 背景
 
-#Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+コミュニケーションツールとして共有フォルダと microsoft Excel を使っているプロジェクトで、こんなメールが来た:
 
-#Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+> 質問票に新たに追加したのでご確認ください。
+> 項目21
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+質問票ってどこよ。項目21ってどこよ。イラっとしたので「リンクを送ってください」と返したら、今度はこれだ:
+
+> \\\\FileServer\MyProject\質問票 20170401版_最新.xlsx
+> 「質問」シートの左側の番号21を見てください。
+
+これはダメだ、リンクを自動的に生成する仕掛けが必要だ。
+
+# What is this? / これはなに?
+
+microsoft excel を共有しているプロジェクトにおいて、コミュニケーションを円滑にするための、以下の機能をもったツールです:
+
+1. リンク生成機能: いま作業しているExcelの、そのシートのそのセルを特定するリンク文字列を生成します。
+
+2. リンク解決機能: 上記リンク文字列で指定されたExcelファイルを開き、指定されたシートの指定されたセルを選択状態にします。
+
+<!--3. 間接リンク機能: 特定のプレフィックス文字列を指定したリンクから、間接的にファイルの場所を特定します。例えば、「質問票:#21」という文字列から、関連する質問票ファイルの質問21のセルを特定して開きます。
+-->
+
+#Getting Started / 始めかた
+
+## Requirement / 前提
+
+以下が必要です:
+
+- Windows 7, 8, 8.1, 10
+- .NET Framework 4.5 or later
+- Microsoft Excel 2010, 2013, 2016
+
+## Install / インストール
+
+[releases](https://github.com/matobaa/HashLink4Excel/releases)ページから、`HashLink4Excel.msi`を実行してインストールしてください。
+
+## How to use / 使いかた
+
+Excelを開き、指定したいセルを右クリックし、「ここへのハイパーリンクをコピー」を実行することで、クリップボードにリンク文字列が格納されます。バグチケットに記載する、メールに添付するなどしてチームメンバと共有してください。
+リンク文字列をクリックしてください。指定したブックが開き、指定したシートのセルが選択されます。
+
+## License / ライセンス
+
+[LICENSE](LICENSE.txt) をご覧ください。
+商業誌・書籍で紹介いただく場合は、見本誌を1冊ご提供ください。
+<!--TODO: 企業で使うための仕掛けを考える。サポートライン、値付け、請求方法。ライセンスの数え方。ユーザ数ベース、ボリュームライセンス、タイムド、寄付、Beerware的な。-->
+
+# Contribute / 貢献
+
+機能要望、バグ報告、プルリクエスト、ドキュメントの作成と提供を歓迎します。
+ブログ等で紹介していただくことも、このプロジェクトへの貢献となります。
+
+<!--
+#開発者向け情報
+
+#Build and Test / ビルド方法
+
+Visual Studio Community 2017 でリポジトリをチェックアウトしてビルドしてください。
+単体テストするには、UnitTestプロジェクトを実行してください。
+リリーステストするには、インストール後、UnitTestプロジェクトの test.html を開いてリンクをつついて、期待した動作となるかを確認してください。
+-->
+
+----
+
+(2017-05-07)
