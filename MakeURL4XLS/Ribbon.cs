@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using System.Resources;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 using Office = Microsoft.Office.Core;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -49,7 +51,9 @@ namespace MakeURL4XLS
             DataObject data = new DataObject();
             data.SetData(DataFormats.Text, urlstring);
             // paste html to clipboard
-            data.SetData(DataFormats.Html, HTMLClipboardFormat(urlstring));
+            string cf_html = HTMLClipboardFormat(urlstring);
+            byte[] cf_html_bytes = Encoding.UTF8.GetBytes(cf_html);
+            data.SetData(DataFormats.Html, new MemoryStream(cf_html_bytes));
             Clipboard.SetDataObject(data, true);
         }
 
@@ -60,13 +64,12 @@ namespace MakeURL4XLS
 
         private static string HTMLClipboardFormat(string urlstring)
         {
-            System.Reflection.Assembly asm;
-            asm = System.Reflection.Assembly.GetExecutingAssembly();
-            System.Resources.ResourceManager rm =
-                new System.Resources.ResourceManager(
+            Assembly asm = Assembly.GetExecutingAssembly();
+            ResourceManager rm = new ResourceManager(
                 asm.GetName().Name + ".Properties.Resources", asm);
             string s = rm.GetString("HTMLClipboardFormat");
-            return String.Format(s, urlstring, 167 + urlstring.Length * 2, 134 + urlstring.Length * 2);
+            int length = Encoding.UTF8.GetBytes(urlstring).Length;
+            return String.Format(s, urlstring, 167 + length * 2, 134 + length * 2);
         }
 
         #endregion
