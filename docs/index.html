@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>matobaa.github.io</title>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="matobaa">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="">
+<link rel="shortcut icon" href="">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="196x196" href="">
+<link rel="apple-touch-icon" sizes="152x152" href="">
+<style>
+img {border-width: 2px; border-style: solid; border-color: gray; zoom: 0.9; margin: 5px; padding: 5px;}
+</style>
+</head>
+<body>
+
+<h1>What is this? / これはなに?</h1>
+<p>microsoft excel を共有しているプロジェクトにおいて、コミュニケーションを円滑にするための、以下の機能をもったツールです:
+<ol>
+<li>リンク生成機能: いま作業しているExcelの、そのシートのそのセルを特定するリンク文字列を生成します。</li>
+<li>リンク解決機能: 上記リンク文字列で指定されたExcelファイルを開き、指定されたシートの指定されたセルを選択状態にします。</li>
+<!--間接リンク機能: 特定のプレフィックス文字列を指定したリンクから、間接的にファイルの場所を特定します。例えば、「質問票:#21」という文字列から、関連する質問票ファイルの質問21のセルを特定して開きます。
+-->
+</ol>
+</p>
+
+<h2>How to use / 使いかた</h2>
+<p>
+<ol>
+<li>Excelを開き、指定したいセルを右クリックし、「ここへのハイパーリンクをコピー」を実行することで、クリップボードにリンク文字列が格納されます。<br>
+<img src="img/1_contextmenu.png" alt="screenshot of cell's context menu" /></li>
+<li>バグチケットに記載する、メールに添付するなどしてチームメンバと共有してください。<br>
+<img src="img/2_PasteTheLink.png" alt="screenshot of pasting the URL to HTML Editor" /></li>
+<li>そのリンクを受け取った人は、そのリンク文字列をクリックするだけで、指定したブックの指定したシートのそのセルが選択された状態で開くことができ、すぐに着目することができます。</li>
+</ol>
+</p>
+
+<h2>Objects that we can link / リンク先に指定できる場所</h2>
+<p>以下のオブジェクトをリンク先として指定できます:
+<ol>
+<li>Excelのセル、行、列、シート、ファイル</li>
+<li>Excelの同一シート上の複数のセル、行、列(範囲、複数選択可)</li>
+<li>Powerpointのページ</li>
+<li>Powerpointのページ上のオブジェクト(複数選択可)</li>
+</ol>
+</p>
+
+<h2>valiations / いろいろな使いかた</h2>
+<p>
+<ol>
+<li>Powerpoint資料をレビューする場合、「このオブジェクト」を明確に指定できます。</li>
+<li>Windowsエクスプローラー上で「ショートカットを作成」するとき、「項目の場所」にリンク文字列を指定することで、特定セルをすばやく開くことができます。</li>
+</ol>
+</p>
+
+<!-- SCRIPTS -->
+<script><!-- google analytics -->
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-36862519-3', 'auto');
+  ga('send', 'pageview');
+</script></body>
+</html>
