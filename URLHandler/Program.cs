@@ -86,7 +86,17 @@ namespace UrlHandler
 #endif
                     Excel._Application appl = GetExcel();
                     Excel.Workbooks workbooks = appl.Workbooks;
-                    Excel.Workbook workbook = workbooks.Open(path);
+                    Excel.Workbook workbook;
+                    try // to open path. if fail once, try to open again with URLdecoded path
+                    {
+                        workbook = workbooks.Open(path);
+                    }
+                    catch (COMException)
+                    {
+                        path = Uri.UnescapeDataString(path);
+                        workbook = workbooks.Open(path);
+                    }
+
                     appl.Visible = true;
                     if (args.Length > 0) // if fragment exists
                         if (Exists(appl.Names, args[1]))
@@ -109,7 +119,16 @@ namespace UrlHandler
 #endif
                     PowerPoint._Application appl = GetPowerPoint();
                     PowerPoint.Presentations ppts = appl.Presentations;
-                    PowerPoint.Presentation ppt = ppts.Open(path);
+                    PowerPoint.Presentation ppt;
+                    try  // to open path. if fail once, try to open again with URLdecoded path
+                    {
+                        ppt = ppts.Open(path);
+                    }
+                    catch (COMException)
+                    {
+                        ppt = ppts.Open(Uri.UnescapeDataString(path));
+
+                    }
                     if (args.Length > 0) // if fragment exists
                         SelectFragment(ppt, args[1]);
                     // bring up
@@ -207,7 +226,7 @@ namespace UrlHandler
 
         private static bool Exists(Excel.Names names, string fragment)
         {
-            foreach(Excel.Name name in names)
+            foreach (Excel.Name name in names)
             {
                 if (name.NameLocal.Equals(fragment)) return true;
             }
