@@ -87,6 +87,8 @@ namespace UrlHandler
                     Excel._Application appl = GetExcel();
                     Excel.Workbooks workbooks = appl.Workbooks;
                     Excel.Workbook workbook;
+                    appl.Visible = true;
+
                     try // to open path. if fail once, try to open again with URLdecoded path
                     {
                         workbook = workbooks.Open(path);
@@ -97,7 +99,6 @@ namespace UrlHandler
                         workbook = workbooks.Open(path);
                     }
 
-                    appl.Visible = true;
                     if (args.Length > 0) // if fragment exists
                         if (Exists(appl.Names, args[1]))
                             appl.Goto(args[1]);

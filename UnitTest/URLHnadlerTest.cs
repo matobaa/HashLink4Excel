@@ -81,6 +81,16 @@ namespace UnitTest
         }
 
         [TestMethod]
+        public void Test_CWD_Name_URLEncoded()
+        {
+            String[] args = { $"{PREFIX}{cwd}\\test%20Book.xlsx#TARGET" };
+            Program.Main(args);
+            _Application excel = Program.GetExcel();
+            AssertAddress("Sheet2", "$G$6:$I$7");
+            excel.ActiveWorkbook.Close();
+        }
+
+        [TestMethod]
         public void Test_CWD_WrongName()
         {
             StartCaptureMessage(UrlHandler.Program.TITLE);
@@ -102,6 +112,40 @@ namespace UnitTest
             AssertAddress("Sheet2", "$G$6:$I$7");
             excel.ActiveWorkbook.Close();
             StopCIFS();
+        }
+        
+        [TestMethod]
+        public void Test_CIFS_Name_URLEncoded()
+        {
+            StartCIFS();
+            String[] args = { $"{PREFIX}\\\\localhost\\testShare\\test%20Book.xlsx#TARGET" };
+            Program.Main(args);
+            _Application excel = Program.GetExcel();
+            AssertAddress("Sheet2", "$G$6:$I$7");
+            excel.ActiveWorkbook.Close();
+            StopCIFS();
+        }
+
+        [TestMethod]
+        public void Test_CIFS_AdminShare()
+        {
+            string basename = cwd.Substring(3);
+            String[] args = { $"{PREFIX}\\\\localhost\\c$\\{basename}\\test Book.xlsx#TARGET" };
+            Program.Main(args);
+            _Application excel = Program.GetExcel();
+            AssertAddress("Sheet2", "$G$6:$I$7");
+            excel.ActiveWorkbook.Close();
+        }
+
+        [TestMethod]
+        public void Test_CIFS_AdminShare_URLEncoded()
+        {
+            string basename = cwd.Substring(3);
+            String[] args = { $"{PREFIX}\\\\localhost\\c$\\{basename}\\test%20Book.xlsx#TARGET" };
+            Program.Main(args);
+            _Application excel = Program.GetExcel();
+            AssertAddress("Sheet2", "$G$6:$I$7");
+            excel.ActiveWorkbook.Close();
         }
 
         [TestMethod]
