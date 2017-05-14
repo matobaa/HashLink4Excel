@@ -151,37 +151,55 @@ namespace UnitTest
         [TestMethod]
         public void Test_WebURLEncoded_Name()
         {
-            StartWebServer();
-            String[] args = { "{PREFIX}http://localhost:34567/test%20Book.xlsx#TARGET" };
-            Program.Main(args);
-            _Application excel = Program.GetExcel();
-            AssertAddress("Sheet2", "$G$6:$I$7");
-            excel.ActiveWorkbook.Close();
-            StopWebServer();
+            try
+            {
+                StartWebServer();
+                String[] args = { $"{PREFIX}http://localhost:34567/test%20Book.xlsx#TARGET" };
+                Program.Main(args);
+                AssertAddress("Sheet2", "$G$6:$I$7");
+            }
+            finally
+            {
+                StopWebServer();
+                _Application excel = Program.GetExcel();
+                excel.ActiveWorkbook.Close();
+            }
         }
 
         [TestMethod]
         public void Test_WebwithSpaces_Name()
         {
-            StartWebServer();
-            String[] args = { "{PREFIX}http://localhost:34567/test", "Book.xlsx#TARGET" };
-            Program.Main(args);
-            _Application excel = Program.GetExcel();
-            AssertAddress("Sheet2", "$G$6:$I$7");
-            excel.ActiveWorkbook.Close();
-            StopWebServer();
+            try
+            {
+                StartWebServer();
+                String[] args = { $"{PREFIX}http://localhost:34567/test", "Book.xlsx#TARGET" };
+                Program.Main(args);
+                AssertAddress("Sheet2", "$G$6:$I$7");
+            }
+            finally
+            {
+                StopWebServer();
+                _Application excel = Program.GetExcel();
+                excel.ActiveWorkbook.Close();
+            }
         }
 
         [TestMethod]
         public void Test_Web_SheetNameWithSpaces_Range()
         {
-            StartWebServer();
-            String[] args = { "{PREFIX}http://localhost:34567/test%20Book.xlsx#Sheet", "with", "spaces!A1:B2" };
-            Program.Main(args);
-            _Application excel = Program.GetExcel();
-            AssertAddress("Sheet with spaces", "$A$1:$B$2");
-            excel.ActiveWorkbook.Close();
-            StopWebServer();
+            try
+            {
+                StartWebServer();
+                String[] args = { $"{PREFIX}http://localhost:34567/test%20Book.xlsx#Sheet", "with", "spaces!A1:B2" };
+                Program.Main(args);
+                AssertAddress("Sheet with spaces", "$A$1:$B$2");
+            }
+            finally
+            {
+                StopWebServer();
+                _Application excel = Program.GetExcel();
+                excel.ActiveWorkbook.Close();
+            }
         }
 
         [TestMethod]

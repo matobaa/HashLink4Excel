@@ -88,12 +88,11 @@ namespace UrlHandler
                     Excel.Workbooks workbooks = appl.Workbooks;
                     Excel.Workbook workbook;
                     appl.Visible = true;
-
-                    try // to open path. if fail once, try to open again with URLdecoded path
+                    if(!path.Contains("%"))
                     {
                         workbook = workbooks.Open(path);
                     }
-                    catch (COMException)
+                    else
                     {
                         path = Uri.UnescapeDataString(path);
                         workbook = workbooks.Open(path);
@@ -121,15 +120,16 @@ namespace UrlHandler
                     PowerPoint._Application appl = GetPowerPoint();
                     PowerPoint.Presentations ppts = appl.Presentations;
                     PowerPoint.Presentation ppt;
-                    try  // to open path. if fail once, try to open again with URLdecoded path
+                    if (!path.Contains("%"))
                     {
                         ppt = ppts.Open(path);
                     }
-                    catch (COMException)
+                    else
                     {
-                        ppt = ppts.Open(Uri.UnescapeDataString(path));
-
+                        path = Uri.UnescapeDataString(path);
+                        ppt = ppts.Open(path);
                     }
+                    
                     if (args.Length > 0) // if fragment exists
                         SelectFragment(ppt, args[1]);
                     // bring up
